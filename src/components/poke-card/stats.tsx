@@ -5,34 +5,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { PokemonStat } from "pokenode-ts";
-
-const pokeStats: { [key: string]: { color: string, name: string } } = {
-    "hp": {
-        color: "bg-red-400",
-        name: "HP",
-    },
-    "attack": {
-        color: "bg-yellow-400",
-        name: "Attack",
-    },
-    "defense": {
-        color: "bg-green-400",
-        name: "Defense",
-    },
-    "special-attack": {
-        color: "bg-blue-400",
-        name: "Special Attack",
-    },
-    "special-defense": {
-        color: "bg-indigo-400",
-        name: "Special Defense",
-    },
-    "speed": {
-        color: "bg-purple-400",
-        name: "Speed",
-    },
-}
-
+import pokeStats from "@/lib/pokestats";
 
 export default function Stats({ stats }: { stats: PokemonStat[] }) {
     return (
@@ -41,7 +14,7 @@ export default function Stats({ stats }: { stats: PokemonStat[] }) {
                 {stats.map(({ base_stat, stat: { name } }) => (
                     <Tooltip key={name}>
                         <TooltipTrigger>
-                            <span className={`${pokeStats[name].color} text-black rounded-lg p-1`}>{base_stat}</span>
+                            <span className={`bg-${pokeStats[name].color} text-black rounded-lg p-1`}>{base_stat}</span>
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>{pokeStats[name].name}</p>
