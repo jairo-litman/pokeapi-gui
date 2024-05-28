@@ -6,6 +6,7 @@ import Header from "@/components/page-header";
 import Footer from "@/components/page-footer";
 
 import "@/styles/globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
                     {children}
                     <Footer />
                 </ThemeProvider>
+                <Toaster />
             </body>
         </html>
     );

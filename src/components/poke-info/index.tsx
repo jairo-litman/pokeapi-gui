@@ -7,6 +7,7 @@ import pokeStats from "@/lib/pokestats";
 import { Progress } from "@/components/ui/progress"
 
 function artOrSprite(pokemon: Pokemon): [string | undefined | null, number] {
+    // get the official artwork if it exists, otherwise use the front sprite
     if (pokemon.sprites.other?.["official-artwork"].front_default) {
         return [pokemon.sprites.other?.["official-artwork"].front_default, 475];
     } else {
@@ -40,6 +41,7 @@ export default function PokeInfo({ pokemon, species }: { pokemon: Pokemon, speci
                             <Progress value={base_stat} max={255} color={`${pokeStats[name].color}`} />
                         </div>
                     ))}
+                    <span>Sum of Base Stats {pokemon.stats.map(({ base_stat }) => base_stat).reduce((a, b) => a + b, 0)}</span>
                 </div>
             </div>
         </div>

@@ -9,11 +9,13 @@ import {
 } from "@/components/ui/pagination"
 
 export default function PokePagination({ currentPage, totalPages }: { currentPage: number, totalPages: number }) {
+    // Calculate the previous and next pages
     const previousPage = (currentPage - 1) > 0 ? currentPage - 1 : 1;
     const previousTwoPages = (currentPage - 2) > 0 ? currentPage - 2 : 1;
     const nextPage = (currentPage + 1) > totalPages ? totalPages : currentPage + 1;
     const nextTwoPages = (currentPage + 2) > totalPages ? totalPages : currentPage + 2;
 
+    // Show only the current page and the two pages before and after it (if they exist), with ellipsis in between when needed
     return (
         <Pagination>
             <PaginationContent>
