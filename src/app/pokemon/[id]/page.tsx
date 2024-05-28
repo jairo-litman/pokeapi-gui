@@ -23,10 +23,12 @@ export default async function PokemonInfo({ params }: { params: { id: string } }
     const [art, artSize] = artOrSprite(pokemon);
 
     return (
-        <div className="p-8 min-h-screen">
-            <h1>{name}</h1>
-            {art ? <Image src={art} alt={pokemon.name} height={artSize} width={artSize} /> : <ImageLucide size="475" />}
-            <p>{flavor ? cleanFlavorText(flavor.flavor_text) : "No description"}</p>
+        <div className="flex flex-row p-8 min-h-screen">
+            <div>
+                {art ? <Image src={art} alt={pokemon.name} height={artSize} width={artSize} /> : <ImageLucide size="475" />}
+            </div>
+            <h1 className="text-8xl">{name}</h1>
+            {/* <p>{flavor ? cleanFlavorText(flavor.flavor_text) : "No description"}</p> */}
         </div>
     );
 }
