@@ -14,7 +14,7 @@ export default function Stats({ stats }: { stats: PokemonStat[] }) {
                 {stats.map(({ base_stat, stat: { name } }) => (
                     <Tooltip key={name}>
                         <TooltipTrigger>
-                            <span className={`bg-${pokeStats[name].color} text-black rounded-lg p-1`}>{base_stat}</span>
+                            <span className={`${pokeStats[name].color} text-black rounded-lg p-1`}>{base_stat}</span>
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>{pokeStats[name].name}</p>

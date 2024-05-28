@@ -20,7 +20,7 @@ export default function PokeInfo({ pokemon, species }: { pokemon: Pokemon, speci
     const [art, artSize] = artOrSprite(pokemon);
 
     return (
-        <div className="flex flex-row p-8 min-h-screen w-full justify-center">
+        <div className="flex flex-row p-8 min-h-[calc(100vh-theme(spacing.header)-theme(spacing.footer))] w-full justify-center">
             <div>
                 {art ? <Image src={art} alt={pokemon.name} height={artSize} width={artSize} /> : <ImageLucide size="475" />}
             </div>
@@ -37,7 +37,7 @@ export default function PokeInfo({ pokemon, species }: { pokemon: Pokemon, speci
                         <div key={name} className="flex flex-row items-center gap-x-2">
                             <span className="w-48">{pokeStats[name].name}</span>
                             <span className="w-9">{base_stat}</span>
-                            <Progress value={base_stat} max={255} color={`bg-${pokeStats[name].color}`} />
+                            <Progress value={base_stat} max={255} color={`${pokeStats[name].color}`} />
                         </div>
                     ))}
                 </div>

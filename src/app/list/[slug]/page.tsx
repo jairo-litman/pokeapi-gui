@@ -34,7 +34,7 @@ export default async function List({ params }: { params: { slug: string } }) {
     }));
 
     return (
-        <div className="p-8 min-h-screen">
+        <div className="p-8 min-h-[calc(100vh-theme(spacing.header)-theme(spacing.footer))]">
             <PokePagination currentPage={pageNumber} totalPages={totalPages} />
             <div className="grid grid-cols-6 gap-x-8 gap-y-4 py-4 items-center justify-items-center">
                 {pokemonsData.map(({ species, pokemon }) => <PokeCard key={pokemon.id} pokemon={pokemon} species={species} />)}
